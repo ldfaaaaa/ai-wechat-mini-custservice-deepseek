@@ -125,3 +125,9 @@ wx.cloud.callFunction('askDeepSeek')
 - 微信云开发 TCB（云函数 + 云数据库）
 - DeepSeek-V3 API（`model: deepseek-chat`）
 - Node.js 原生 `https` 模块
+
+## 演示截图
+（在这里插入你的截图，用Markdown格式上传图片到仓库后引用）
+<img width="708" height="1432" alt="3626802cdc26ec71878fcd453fab7b6f" src="https://github.com/user-attachments/assets/44ea4326-1c2b-4d7d-8481-6bd40b2c833a" />
+<img width="774" height="1452" alt="666c21fd1a47ed852502d94067c7e071" src="https://github.com/user-attachments/assets/2c1c474d-77ae-41cc-af93-1d4eb889f2e5" />
+
