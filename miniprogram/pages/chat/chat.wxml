@@ -1,0 +1,87 @@
+<!-- miniprogram/pages/chat/chat.wxml -->
+<view class="chat-container">
+
+  <!-- 消息列表区域 -->
+  <scroll-view
+    class="message-list"
+    scroll-y="true"
+    scroll-top="{{scrollTop}}"
+    scroll-into-view="{{scrollIntoView}}"
+    enhanced="true"
+    bounces="false"
+  >
+    <!-- 顶部欢迎气泡（固定显示） -->
+    <view class="message-row message-row-bot" id="msg-welcome">
+      <image class="avatar avatar-bot" src="/images/bot-avatar.svg" mode="aspectFill"></image>
+      <view class="bubble bubble-bot">
+        <text class="bubble-text">👋 你好！我是 AI 智能客服，由 DeepSeek-V3 驱动。\n\n请问有什么可以帮助您的？您可以直接输入问题，或者点击右下角转接人工客服。</text>
+      </view>
+    </view>
+
+    <!-- 动态消息列表 -->
+    <block wx:for="{{messages}}" wx:key="id">
+      <!-- 用户消息（靠右，绿色气泡） -->
+      <view class="message-row message-row-user" id="msg-{{item.id}}" wx:if="{{item.role === 'user'}}">
+        <view class="bubble bubble-user">
+          <text class="bubble-text">{{item.content}}</text>
+        </view>
+        <image class="avatar avatar-user" src="/images/user-avatar.svg" mode="aspectFill"></image>
+      </view>
+
+      <!-- AI 消息（靠左，白色气泡） -->
+      <view class="message-row message-row-bot" id="msg-{{item.id}}" wx:if="{{item.role === 'assistant'}}">
+        <image class="avatar avatar-bot" src="/images/bot-avatar.svg" mode="aspectFill"></image>
+        <view class="bubble bubble-bot">
+          <text class="bubble-text" wx:if="{{!item.isError}}">{{item.content}}</text>
+          <text class="bubble-text bubble-error" wx:if="{{item.isError}}">{{item.content}}</text>
+        </view>
+      </view>
+    </block>
+
+    <!-- Loading：三个圆点闪烁动画 -->
+    <view class="message-row message-row-bot" wx:if="{{isLoading}}">
+      <image class="avatar avatar-bot" src="/images/bot-avatar.svg" mode="aspectFill"></image>
+      <view class="bubble bubble-bot bubble-loading">
+        <view class="loading-dots">
+          <view class="dot dot-1"></view>
+          <view class="dot dot-2"></view>
+          <view class="dot dot-3"></view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部占位，为输入框留空 -->
+    <view class="list-bottom-padding" id="list-bottom"></view>
+  </scroll-view>
+
+  <!-- 底部输入区域 -->
+  <view class="input-bar" style="padding-bottom: {{safeAreaBottom}}px;">
+    <input
+      class="input-field"
+      placeholder="输入您的问题..."
+      placeholder-class="input-placeholder"
+      value="{{inputValue}}"
+      bindinput="onInput"
+      bindconfirm="onSend"
+      confirm-type="send"
+      maxlength="500"
+      adjust-position="true"
+    />
+    <button
+      class="send-btn {{inputValue.length > 0 ? 'send-btn-active' : 'send-btn-disabled'}}"
+      bindtap="onSend"
+      disabled="{{inputValue.length === 0 || isLoading}}"
+    >
+      <text class="send-icon">↑</text>
+    </button>
+  </view>
+
+  <!-- 右下角：微信原生一键转人工 -->
+  <contact-button
+    class="contact-btn"
+    type="default-dark"
+    size="50"
+    session-from="miniprogram_chat_page"
+  ></contact-button>
+
+</view>

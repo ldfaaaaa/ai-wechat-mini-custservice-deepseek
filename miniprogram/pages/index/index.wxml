@@ -1,0 +1,65 @@
+<!-- miniprogram/pages/index/index.wxml -->
+<view class="container">
+
+  <!-- 顶部绿色渐变 Banner -->
+  <view class="banner">
+    <view class="banner-icon">🤖</view>
+    <text class="banner-title">AI 智能客服</text>
+    <text class="banner-subtitle">DeepSeek-V3 驱动 · 随时响应</text>
+    <view class="banner-wave"></view>
+  </view>
+
+  <!-- 功能介绍卡片区域 -->
+  <view class="features-section">
+    <text class="section-title">核心功能</text>
+
+    <view class="feature-card">
+      <view class="feature-icon-wrap feature-icon-blue">
+        <text class="feature-icon">💬</text>
+      </view>
+      <view class="feature-content">
+        <text class="feature-name">智能多轮对话</text>
+        <text class="feature-desc">基于 DeepSeek-V3 大模型，理解上下文，提供准确、自然的对话体验</text>
+      </view>
+    </view>
+
+    <view class="feature-card">
+      <view class="feature-icon-wrap feature-icon-orange">
+        <text class="feature-icon">📖</text>
+      </view>
+      <view class="feature-content">
+        <text class="feature-name">FAQ 知识库</text>
+        <text class="feature-desc">内置常见问题快速匹配，优先命中知识库，降低 API 费用，即时响应</text>
+      </view>
+    </view>
+
+    <view class="feature-card">
+      <view class="feature-icon-wrap feature-icon-green">
+        <text class="feature-icon">👨‍💼</text>
+      </view>
+      <view class="feature-content">
+        <text class="feature-name">一键转人工</text>
+        <text class="feature-desc">遇到复杂问题随时一键转接人工客服，保障服务质量与用户体验</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作按钮 -->
+  <view class="action-section">
+    <button class="btn-start" bindtap="onStartChat">
+      <text class="btn-start-icon">🚀</text>
+      <text class="btn-start-text">开始咨询</text>
+    </button>
+
+    <button class="btn-copy" bindtap="onCopyQrLink">
+      <text class="btn-copy-icon">📋</text>
+      <text class="btn-copy-text">复制客服二维码链接</text>
+    </button>
+  </view>
+
+  <!-- 底部版权信息 -->
+  <view class="footer">
+    <text class="footer-text">Powered by DeepSeek-V3 · 微信云开发</text>
+  </view>
+
+</view>

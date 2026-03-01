@@ -1,0 +1,93 @@
+/* app.wxss - 全局样式 */
+
+/* 重置默认样式 */
+page {
+  font-family: -apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 28rpx;
+  color: #333333;
+  background-color: #F5F5F5;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* 通用容器 */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 通用卡片 */
+.card {
+  background-color: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.08);
+}
+
+/* 通用按钮 */
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #07C160, #06AD56);
+  color: #FFFFFF;
+  border-radius: 48rpx;
+  height: 96rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 8rpx 24rpx rgba(7, 193, 96, 0.35);
+  letter-spacing: 2rpx;
+}
+
+.btn-primary:active {
+  opacity: 0.85;
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  color: #07C160;
+  border-radius: 48rpx;
+  height: 96rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  border: 2rpx solid #07C160;
+  letter-spacing: 2rpx;
+}
+
+.btn-secondary:active {
+  background-color: #F0FFF6;
+}
+
+/* 文字截断 */
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* flex布局工具类 */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
